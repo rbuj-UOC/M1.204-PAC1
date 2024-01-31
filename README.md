@@ -1,4 +1,4 @@
-# PAC1: recomanadors i agrupaments Enunciat
+# PAC1: recomanadors i agrupaments
 
 ## Introducció
 
@@ -10,7 +10,8 @@ Tots els arxius de dades (iogurts_*.data) tenen el mateix format: tres columnes 
 
 Al fitxer iogurts_entrenament.data hi ha les valoracions de 100 consumidors (amb identificadors 1..100) de tots deu iogurts, amb la particularitat què amb els nous sabors no poden repetir valoració (de fet han de repartir les valoracions 2..5 entre els quatre iogurts nous). El fitxer iogurts_prova.data conté les valoracions d'altres 100 consumidors (amb identificadors 101..200) però només del iogurts que es venen actualment (1..6). Finalment, el fitxer iogurts_validacio.data conté les valoracions que els 100 consumidors del fitxer iogurts_prova (és a dir, els que tenen els identificadors 101..200) han fet dels nous iogurts (7..10), també amb la restricció de no repetir valoracions.
 
-Nota: el fet que les valoracions dels nous iogurts no es puguin repetir per un mateix consumidor serveix per evitar ambigüitats als resultats i simplificar l'anàlisi i la valoració dels resultats. De fet és força habitual imposar aquesta mena de restriccions als estudis de mercat.
+> [!NOTE]  
+> El fet que les valoracions dels nous iogurts no es puguin repetir per un mateix consumidor serveix per evitar ambigüitats als resultats i simplificar l'anàlisi i la valoració dels resultats. De fet és força habitual imposar aquesta mena de restriccions als estudis de mercat.
 
 
 ## Activitats
@@ -21,11 +22,11 @@ A totes les activitats cal justificar raonadament la vostra resposta.
 
 ### Activitat 1
 
-El pas previ a qualsevol anàlisi de dades és efectuar un tractament per tal d'adequar els seus valors. Entre les operacions habituals trobem la normalització o estandardització de les dades (veieu per exemple http://ca.wikipedia.org/wiki/Distribuci%C3%B3_normal).
-
-Primer de tot es demana, doncs, que realitzeu el tractament previ de les dades que considereu necessari (o pot ser no cal fer-ne cap tractament previ).
-
-**Resposta**
+> **Enunciat**
+>
+> El pas previ a qualsevol anàlisi de dades és efectuar un tractament per tal d'adequar els seus valors. Entre les operacions habituals trobem la normalització o estandardització de les dades (veieu per exemple http://ca.wikipedia.org/wiki/Distribuci%C3%B3_normal).
+>
+> Primer de tot es demana, doncs, que realitzeu el tractament previ de les dades que considereu necessari (o pot ser no cal fer-ne cap tractament previ).
 
 Ja que en la realització de les següents activitats es fan operacions element sobre element, per exemple en el càlcul de distàncies i/o similituds eulerianes i/o coeficients de Pearson, i com que la informació està indexada segons un identificador d'usuari, es creu convenient utilitzar la representació de dades en format diccionari i no en matrius, per la qual cosa no es realitza a priori una representació de la informació en format de matriu així com tampoc es realitza cap adaptació per facilitar les operacions matemàtiques amb l'ús de matrius, ja que s'utilitzen diccionaris.
 
@@ -35,13 +36,13 @@ En el segon exercici es va provar de millorar la informació eliminant aquella m
 
 ### Activitat 2
 
-Prenent les dades del fitxer d'entrenament, genereu un recomanador ponderat de iogurts nous pels consumidors de prova (identificadors 101..200), de manera que a cadascun d'aquests consumidors se li recomani quin dels nous iogurts l'hauria d'agradar més tenint en compte les valoracions dels consumidors d'entrenament (1..100). Proveu amb similitud euclidiana i amb correlació de Pearson com a mides de similitud.
-
-Seguidament, compareu la recomanació feta per cada usuari (serà un dels iogurts 7..10) amb les seves valoracions enregistrades al fitxer de validació. En quin tant per cent dels casos la recomanació coincideix amb una valoració de 5? I de 4? Quines conclusions es poden treure?
-
-Compareu les diferències (si hi ha) entre les recomanacions amb similitud euclidiana i amb correlació de Pearson.
-
-**Resposta**
+> **Enunciat**
+>
+> Prenent les dades del fitxer d'entrenament, genereu un recomanador ponderat de iogurts nous pels consumidors de prova (identificadors 101..200), de manera que a cadascun d'aquests consumidors se li recomani quin dels nous iogurts l'hauria d'agradar més tenint en compte les valoracions dels consumidors d'entrenament (1..100). Proveu amb similitud euclidiana i amb correlació de Pearson com a mides de similitud.
+>
+> Seguidament, compareu la recomanació feta per cada usuari (serà un dels iogurts 7..10) amb les seves valoracions enregistrades al fitxer de validació. En quin tant per cent dels casos la recomanació coincideix amb una valoració de 5? I de 4? Quines conclusions es poden treure?
+>
+> Compareu les diferències (si hi ha) entre les recomanacions amb similitud euclidiana i amb correlació de Pearson.
 
 El percentatge d'encert quant al iogurt amb millor valoració, és més elevat si s'utilitza similitud per coeficients de Pearson en comparació amb l'ús de similitud euleriana. No obstant el percentatge d'encert com a iogurts més ben valorats, ambdues similituds ofereixen valors semblants. (Percentatge encert millor valorat similitud euleriana: 51%, coeficient Pearson:58%. Percentatge encert entre més ben valorats similitud euleriana: 70%, coeficient Pearson:74%)
 
@@ -61,13 +62,13 @@ En aquesta activitat, els resultats obtinguts amb similitud euleriana són degut
 
 ### Activitat 3
 
-Genereu un dendrograma pel mètode aglomeratiu que faci l'agrupament dels consumidors fent servir només les dades del fitxer de prova. No cal generar el diagrama d'arbre, només ens interessen els grups generats.
-
-Hauríeu d'obtenir una sèrie d'agrupaments de consumidors; preneu com a resultat l'agrupament en el qual queden exactament quatre grups. Ara accediu al fitxer de validació i determineu quin és el iogurt més valorat per cada usuari. Associeu aquesta informació amb els grups obtinguts amb el dendrograma: els grups són uniformes a les seves valoracions dels nous iogurts? És a dir, quin tant per cent de cada grup prefereix el mateix iogurt (dels nous)?
-
-Podeu comparar els resultats fent servir els diferents mètodes d'enllaç que hi ha als materials de l'assignatura.
-
-**Resposta**
+> **Enunciat**
+>
+> Genereu un dendrograma pel mètode aglomeratiu que faci l'agrupament dels consumidors fent servir només les dades del fitxer de prova. No cal generar el diagrama d'arbre, només ens interessen els grups generats.
+>
+> Hauríeu d'obtenir una sèrie d'agrupaments de consumidors; preneu com a resultat l'agrupament en el qual queden exactament quatre grups. Ara accediu al fitxer de validació i determineu quin és el iogurt més valorat per cada usuari. Associeu aquesta informació amb els grups obtinguts amb el dendrograma: els grups són uniformes a les seves valoracions dels nous iogurts? És a dir, quin tant per cent de cada grup prefereix el mateix iogurt (dels nous)?
+>
+> Podeu comparar els resultats fent servir els diferents mètodes d'enllaç que hi ha als materials de l'assignatura.
 
 L'enllaç simple va obtenir el percentatge d'encert més baix en la predicció del iogurt més ben valorat, molt inferior al percentatge d'encert utilitzant enllaç complet o amb mitjana, amb els darrers enllaços es van obtenir resultats amb rang lleugerament similars, però superior en el cas d'enllaç  amb mitjana. (Percentatge encert enllaç simple: 26%, enllaç complet:43% i enllaç amb mitjana:53%)
 
@@ -92,17 +93,17 @@ Percentatge d'encerts en prediccions dins dels 2 mes valorats: 68.0 %
 
 ### Activitat 4
 
-Feu servir l'algorisme k-means (el teniu al codi 4.4 dels materials) per generar quatre grups de consumidors tenint en compte només les valoracions dels iogurts 1..6 dels consumidors del fitxer d'entrenament.
-
-Com a resultat obtindreu quatre grups de consumidors amb valoracions semblants i quatre centroides, és a dir quatre consumidors representatius de cadascun dels quatre grups.
-
-Calculeu quin és el nou iogurt preferit (valoració igual a cinc) de cada grup. És el mateix que el preferit pel seu centroide? Per qué?
-
-A continuació farem servir els centroides obtinguts com a recomanador basat en models per nous consumidors. Determineu a quin grup pertany cadascun dels consumidors del fitxer de prova, i com a conseqüència quin nou iogurt li recomanaríeu.
-
-Compareu aquesta recomanació amb la seva pròpia valoració registrada al fitxer iogurts_validacio.data. Quin tant per cent d'encert s'obté (usuaris als que s'hi recomana el seu nou iogurt preferit)? I si relaxem una mica les condicions, és a dir acceptem per bona una recomanació dels iogurts amb valoració 4 o 5, quin tant per cent d'encert s'obté?
-
-**Resposta**
+> **Enunciat**
+>
+> Feu servir l'algorisme k-means (el teniu al codi 4.4 dels materials) per generar quatre grups de consumidors tenint en compte només les valoracions dels iogurts 1..6 dels consumidors del fitxer d'entrenament.
+>
+> Com a resultat obtindreu quatre grups de consumidors amb valoracions semblants i quatre centroides, és a dir quatre consumidors representatius de cadascun dels quatre grups.
+>
+> Calculeu quin és el nou iogurt preferit (valoració igual a cinc) de cada grup. És el mateix que el preferit pel seu centroide? Per qué?
+>
+> A continuació farem servir els centroides obtinguts com a recomanador basat en models per nous consumidors. Determineu a quin grup pertany cadascun dels consumidors del fitxer de prova, i com a conseqüència quin nou iogurt li recomanaríeu.
+>
+> Compareu aquesta recomanació amb la seva pròpia valoració registrada al fitxer iogurts_validacio.data. Quin tant per cent d'encert s'obté (usuaris als que s'hi recomana el seu nou iogurt preferit)? I si relaxem una mica les condicions, és a dir acceptem per bona una recomanació dels iogurts amb valoració 4 o 5, quin tant per cent d'encert s'obté?
 
 El percentatge d'encert varia en cada execució, ja que al principi de l'algoritme de kmeans s'escullen k centroides a l'atzar, d'aquesta manera en cada execució canvien els centroides, els membres en cadascun dels grups, les prediccions i el percentatge d'encerts. El iogurt més preferit d'un grup és o bé el que està més a prop del centroide o aquell més preferit pels membres del grup.
 
@@ -112,16 +113,16 @@ Iogurt(s) pregerit(s) grup 0 = [8]
 Iogurt(s) pregerit(s) grup 1 = [9]
 Iogurt(s) pregerit(s) grup 2 = [7]
 Iogurt(s) pregerit(s) grup 3 = [10]
-Prediccio (idPersona, iogurts) = {101: [9], 102: [9], 103: [9], 104: [10], 105: [9], 106: [9], 107: [10], 108: [9], 109: [9], 110: [7], 111: [7], 112: [10], 113: [9], 114: [7], 115: [9], 116: [9], 117: [8], 118: [7], 119: [7], 120: [10], 121: [9], 122: [7], 123: [9], 124: [9], 125: [10], 126: [8], 127: [10], 128: [7], 129: [8], 130: [7], 131: [8], 132: [10], 133: [9], 134: [10], 135: [10], 136: [10], 137: [10], 138: [10], 139: [9], 140: [8], 141: [8], 142: [7], 143: [7], 144: [9], 145: [9], 146: [7], 147: [8], 148: [9], 149: [7], 150: [10], 151: [9], 152: [7], 153: [10], 154: [9], 155: [9], 156: [7], 157: [10], 158: [8], 159: [10], 160: [9], 161: [9], 162: [7], 163: [7], 164: [10], 165: [9], 166: [8], 167: [8], 168: [10], 169: [8], 170: [7], 171: [9], 172: [9], 173: [10], 174: [9], 175: [9], 176: [8], 177: [9], 178: [8], 179: [7], 180: [7], 181: [9], 182: [10], 183: [9], 184: [10], 185: [10], 186: [10], 187: [10], 188: [9], 189: [8], 190: [10], 191: [10], 192: [9], 193: [7], 194: [10], 195: [10], 196: [8], 197: [8], 198: [9], 199: [10], 200: [9]}
+Predicció (idPersona, iogurts) = {101: [9], 102: [9], 103: [9], 104: [10], 105: [9], 106: [9], 107: [10], 108: [9], 109: [9], 110: [7], 111: [7], 112: [10], 113: [9], 114: [7], 115: [9], 116: [9], 117: [8], 118: [7], 119: [7], 120: [10], 121: [9], 122: [7], 123: [9], 124: [9], 125: [10], 126: [8], 127: [10], 128: [7], 129: [8], 130: [7], 131: [8], 132: [10], 133: [9], 134: [10], 135: [10], 136: [10], 137: [10], 138: [10], 139: [9], 140: [8], 141: [8], 142: [7], 143: [7], 144: [9], 145: [9], 146: [7], 147: [8], 148: [9], 149: [7], 150: [10], 151: [9], 152: [7], 153: [10], 154: [9], 155: [9], 156: [7], 157: [10], 158: [8], 159: [10], 160: [9], 161: [9], 162: [7], 163: [7], 164: [10], 165: [9], 166: [8], 167: [8], 168: [10], 169: [8], 170: [7], 171: [9], 172: [9], 173: [10], 174: [9], 175: [9], 176: [8], 177: [9], 178: [8], 179: [7], 180: [7], 181: [9], 182: [10], 183: [9], 184: [10], 185: [10], 186: [10], 187: [10], 188: [9], 189: [8], 190: [10], 191: [10], 192: [9], 193: [7], 194: [10], 195: [10], 196: [8], 197: [8], 198: [9], 199: [10], 200: [9]}
 Percentatge d'encerts en predicció iogurt mes valorat: 72.0 %
 Percentatge d'encerts en prediccions dins dels 2 mes valorats: 86.0 %
 ```
 
 ### Activitat 5
 
-Compareu els resultats de les activitats 2 i 4. Quin mètode funciona millor en aquest exemple? Quins altres avantatges té cada mètode respecte l'altre?
-
-**Resposta**
+> **Enunciat**
+>
+> Compareu els resultats de les activitats 2 i 4. Quin mètode funciona millor en aquest exemple? Quins altres avantatges té cada mètode respecte l'altre?
 
 En aquest exemple en algunes execucions s'han obtingut resultats millors amb l'activitat 4, l'activitat 2 amb Pearson dóna resultats inferiors en comparació amb l'activitat 4 (no sempre), i l'activitat 2 similitud euleriana quasi bé obté de forma diferenciada els pitjors resultats en comparació amb els anteriors resultats.
 
